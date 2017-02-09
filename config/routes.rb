@@ -1,16 +1,9 @@
 Rails.application.routes.draw do
-  resources :products
+  post '/api/v1/products' => 'api/v1/products#create'
+  get '/admin/products' => 'api/v1/products#index'
+  get '/admin/products/:id/edit' => 'api/v1/products#edit', as: :edit_product
+  patch '/admin/products/:id' => 'api/v1/products#update', as: :product
 
-  resources :users, only: [:new, :create]
-
-  resources :user_sessions, only: [:create, :destroy]
-
-  delete '/sign_out', to: 'user_sessions#destroy', as: :sign_out
-  get '/sign_in', to: 'user_sessions#new', as: :sign_in
-
-  get '/admin/products' => 'products#index'
-
-  root 'user_sessions#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

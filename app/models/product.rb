@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
-  has_and_belongs_to_many :categories
-  has_many :product_images, :dependent => :destroy
+  has_many :images, :dependent => :destroy
+  accepts_nested_attributes_for :images
 
   validate :price_should_be_multiples_of_hundred
 

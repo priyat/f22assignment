@@ -7,6 +7,7 @@ class CreateProducts < ActiveRecord::Migration
       t.text :description
       t.datetime :expire_date
       t.text :tags
+      t.text :categories
 
       t.timestamps null: false
     end
