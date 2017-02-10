@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/admin/products/:id/edit' => 'api/v1/products#edit', as: :edit_product
   patch '/admin/products/:id' => 'api/v1/products#update', as: :product
 
+  root 'api/v1/products#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
